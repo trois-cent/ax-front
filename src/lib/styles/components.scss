@@ -1,0 +1,21 @@
+// small square buttons
+.small-button {
+    font-family: var(--poppins);
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+
+    background-color: hsl(var(--hsl-white) / .1);
+    color: var(--white);
+
+    border-radius: var(--radius-sm);
+    padding: 0.5rem .75rem;
+
+    line-height: 1;
+    white-space: nowrap;
+
+    &.primary {
+        background-color: var(--accent);
+    }
+}

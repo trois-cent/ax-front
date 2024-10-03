@@ -1,0 +1,26 @@
+:root {
+    // colors
+    --hsl-black: 0 0% 9%;
+    --hsl-white: 0 0% 96%;
+    --hsl-accent: 11 89% 59%;
+
+    --test: #fafaf9;
+
+    --black: #171717;
+    --white: #f5f5f5;
+    --accent: #f35d3a;
+    --accent-dark: #DB5434;
+
+    // typo
+    --poppins: 'Poppins', sans-serif;
+    --aspekta: 'Aspekta', sans-serif;
+
+    // dimensions
+    --cont: min(95vw, 1920px);
+
+    // corners
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+
+}
