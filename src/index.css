@@ -77,19 +77,25 @@ html {
     width: 100%;
     height: 100%;
     overflow-x: hidden;
+    overscroll-behavior: none;
 }
 
 body {
     width: 100%;
     height: 100%;
+    overflow: hidden;
+
+    font-family: var(--poppins);
     font-size: 1rem;
 
-    background-color: var(--accent);
+    background-color: var(--black);
+    color: hsl(var(--hsl-white) / 0.6);
 }
 
 #root {
     width: 100%;
     height: 100%;
+    overflow: hidden;
 }
 
 ul {
@@ -124,4 +130,46 @@ textarea {
     body {
         @apply bg-background text-foreground;
     }
+}
+
+@layer utilities {
+    .impact-text {
+        font-family: var(--aspekta);
+        font-size: var(--fs-impact);
+        font-weight: 600;
+
+        text-transform: uppercase;
+        line-height: 1.1em;
+
+        color: var(--accent);
+    }
+
+    .big-p {
+        font-family: var(--aspekta);
+        font-size: var(--fs-48);
+        font-weight: 350;
+
+        color: hsl(var(--hsl-white) / 0.75);
+    }
+
+    .menu-link {
+        font-family: var(--poppins);
+        font-size: 20px;
+        font-weight: 500;
+
+        line-height: 1em;
+        text-transform: uppercase;
+        white-space: nowrap;
+
+        color: var(--black);
+    }
+}
+
+::selection {
+    background-color: var(--accent);
+    color: var(--black);
+}
+
+::-webkit-scrollbar {
+    display: none;
 }

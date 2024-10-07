@@ -1,21 +1,143 @@
 #navigation-frame {
+    --top-offset: 0;
+    --page-count: 3;
+
+    position: relative;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+    background-color: var(--accent);
+
+    .menu {
+        .main-links {
+            display: grid;
+            grid-template-columns: repeat(var(--page-count), 1fr);
+
+            a {
+                color: hsl(var(--hsl-black) / 0.45);
+
+                font-family: var(--aspekta);
+                font-size: calc(var(--cw) * 2.5);
+                font-weight: 600;
+                text-transform: uppercase;
+
+                transition: 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) 0.1s;
+
+                &.active {
+                    color: var(--black) !important;
+                }
+
+                &:hover {
+                    color: var(--black);
+                }
+            }
+        }
+    }
+
     main {
-        position: relative;
-        top: 0;
+        position: fixed;
+        bottom: 0;
         left: 0;
 
         width: 100%;
         height: 100%;
 
-        transition: scale 0.65s cubic-bezier(0.645, 0.045, 0.355, 1), top 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+        overflow: hidden;
+
+        scale: 1;
+        transition: scale 0.55s cubic-bezier(0.645, 0.045, 0.355, 1), height 0.65s cubic-bezier(0.645, 0.045, 0.355, 1),
+            border-radius 0.55s ease;
+
+        .inner {
+            position: relative;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+
+            overflow: auto;
+        }
+
+        .overlay {
+            position: absolute;
+            z-index: 10;
+            bottom: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+
+            display: grid;
+            place-items: center;
+
+            background-color: hsl(var(--hsl-black) / 0.95);
+            backdrop-filter: blur(16px);
+
+            user-select: none;
+            pointer-events: none;
+
+            opacity: 0;
+
+            transition: 0.35s ease;
+
+            &:hover {
+                color: var(--white);
+                cursor: pointer;
+            }
+
+            p {
+                opacity: 0;
+            }
+        }
     }
 
     &.open {
         main {
-            top: 50vh;
+            height: calc(100% - var(--top-offset));
             scale: 0.95 1;
-            border-radius: var(--radius-md);
-            overflow: hidden;
+            border-radius: var(--radius-md) var(--radius-md) 0 0;
+
+            .inner {
+                overflow: hidden;
+            }
+
+            .overlay {
+                opacity: 1;
+                pointer-events: all;
+
+                transition: 0.2s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+                p {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1023px) {
+    #navigation-frame {
+        .menu {
+            .main-links {
+                display: block;
+
+                a {
+                    font-family: var(--aspekta);
+                    font-size: var(--fs-impact);
+                    font-weight: 600;
+
+                    text-transform: uppercase;
+                    line-height: 1.1em;
+                    color: hsl(var(--hsl-black) / 0.6);
+
+                    p {
+                        border-bottom: 2px solid hsl(var(--hsl-black) / 0.15);
+                    }
+                }
+            }
         }
     }
 }

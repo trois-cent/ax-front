@@ -6,16 +6,34 @@
     text-transform: uppercase;
     letter-spacing: 0.05em;
 
-    background-color: hsl(var(--hsl-white) / .1);
+    background-color: hsl(var(--hsl-white) / 0.1);
     color: var(--white);
 
     border-radius: var(--radius-sm);
-    padding: 0.5rem .75rem;
+    padding: 0.5rem 0.75rem;
 
     line-height: 1;
     white-space: nowrap;
 
+    transition: 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+
     &.primary {
         background-color: var(--accent);
+    }
+
+    &.black {
+        background-color: var(--black);
+    }
+}
+
+// frame for image and media contents
+.media-frame {
+    border: 2px solid var(--line);
+    border-radius: var(--radius-md);
+    padding: 8px;
+
+    & > * {
+        border-radius: var(--radius-sm);
+        overflow: hidden;
     }
 }
