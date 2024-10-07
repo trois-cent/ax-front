@@ -4,23 +4,35 @@
     --hsl-white: 0 0% 96%;
     --hsl-accent: 11 89% 59%;
 
-    --test: #fafaf9;
-
     --black: #171717;
     --white: #f5f5f5;
-    --accent: #f35d3a;
-    --accent-dark: #DB5434;
+    --accent: #ff6340;
+    --accent-dark: #db5434;
+
+    --line: hsl(var(--hsl-white) / 0.15);
+
+    // dimensions
+    --cont: min(95vw, 1920px);
+    --cw: calc(var(--cont) / 100);
+    --gutter: calc((100vw - var(--cont)) / 2);
 
     // typo
     --poppins: 'Poppins', sans-serif;
     --aspekta: 'Aspekta', sans-serif;
 
-    // dimensions
-    --cont: min(95vw, 1920px);
+    --fs-impact: calc(12 * var(--cw));
+    --fs-48: 48px;
 
     // corners
     --radius-sm: 4px;
     --radius-md: 8px;
     --radius-lg: 12px;
+}
 
+// phone + tablet
+@media (max-width: 1024px) {
+    :root {
+        // dimensions
+        --cont: min(90vw);
+    }
 }
