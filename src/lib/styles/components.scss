@@ -1,5 +1,7 @@
 // small square buttons
 .small-button {
+    display: inline-block;
+
     font-family: var(--poppins);
     font-size: 14px;
     font-weight: 600;
@@ -10,7 +12,7 @@
     color: var(--white);
 
     border-radius: var(--radius-sm);
-    padding: 0.5rem 0.75rem;
+    padding: 0.5em 0.7em;
 
     line-height: 1;
     white-space: nowrap;

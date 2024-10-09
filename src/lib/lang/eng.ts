@@ -20,5 +20,6 @@ export default {
         login: 'Login',
         signup: 'Sign Up',
         dashboard: 'Dashboard',
+        share: 'Share',
     },
 }

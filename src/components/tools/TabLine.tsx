@@ -7,11 +7,12 @@ type TabLineProps = {
     i: number
     cols: number
     color?: string
+    refresh?: boolean
 }
 
 gsap.registerPlugin(useGSAP)
 
-const TabLine: FC<TabLineProps> = ({ i, cols, color = 'var(--black)' }) => {
+const TabLine: FC<TabLineProps> = ({ i, cols, color = 'var(--black)', refresh }) => {
     const wrap = useRef<HTMLDivElement>(null)
     const bar = useRef<HTMLDivElement>(null)
     const animRef = useRef<gsap.core.Tween>()
@@ -55,13 +56,15 @@ const TabLine: FC<TabLineProps> = ({ i, cols, color = 'var(--black)' }) => {
         const newBarWidth = wrap.current.clientWidth / cols
         setBarWidth(newBarWidth)
         gsap.to(bar.current, { x: `${newBarWidth * i}`, duration: 0.35, ease: 'cubic.inOut' })
-    }, [cols, width])
+    }, [cols, width, refresh])
 
     useEffect(() => {
+        console.log('change applied to bar')
         moveLine()
     }, [index])
 
     useEffect(() => {
+        console.log('change detected')
         if (i !== index) setIndex(i)
     }, [i])
 

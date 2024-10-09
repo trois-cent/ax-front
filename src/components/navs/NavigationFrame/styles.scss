@@ -10,6 +10,29 @@
     height: 100%;
     background-color: var(--accent);
 
+    display: flex;
+    flex-wrap: nowrap;
+
+    overflow: hidden;
+
+    .auth-left,
+    .auth-right {
+        display: none;
+    }
+
+    .frame {
+        position: relative;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 100%;
+        background-color: var(--accent);
+
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
     .menu {
         .main-links {
             display: grid;
@@ -37,7 +60,7 @@
     }
 
     main {
-        position: fixed;
+        position: absolute;
         bottom: 0;
         left: 0;
 
@@ -95,23 +118,25 @@
     }
 
     &.open {
-        main {
-            height: calc(100% - var(--top-offset));
-            scale: 0.95 1;
-            border-radius: var(--radius-md) var(--radius-md) 0 0;
+        .frame {
+            main {
+                height: calc(100% - var(--top-offset));
+                scale: 0.95 1;
+                border-radius: var(--radius-md) var(--radius-md) 0 0;
 
-            .inner {
-                overflow: hidden;
-            }
+                .inner {
+                    overflow: hidden;
+                }
 
-            .overlay {
-                opacity: 1;
-                pointer-events: all;
-
-                transition: 0.2s cubic-bezier(0.215, 0.61, 0.355, 1);
-
-                p {
+                .overlay {
                     opacity: 1;
+                    pointer-events: all;
+
+                    transition: 0.2s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+                    p {
+                        opacity: 1;
+                    }
                 }
             }
         }
@@ -131,12 +156,48 @@
 
                     text-transform: uppercase;
                     line-height: 1.1em;
-                    color: hsl(var(--hsl-black) / 0.6);
 
                     p {
                         border-bottom: 2px solid hsl(var(--hsl-black) / 0.15);
                     }
                 }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1300px) {
+    #navigation-frame {
+        .frame,
+        .auth-left,
+        .auth-right {
+            transition: 0.55s cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
+
+        .auth-left,
+        .auth-right {
+            width: 0px;
+            height: 100%;
+            display: grid;
+            place-items: center;
+
+            overflow: hidden;
+        }
+
+        &.log-in {
+            .auth-left {
+                width: 50%;
+            }
+            .frame {
+                width: 50%;
+            }
+        }
+        &.sign-up {
+            .auth-right {
+                width: 50%;
+            }
+            .frame {
+                width: 50%;
             }
         }
     }
