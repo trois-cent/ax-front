@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes } from 'react-router-dom'
 import WebFont from 'webfontloader'
 import FakePage from './components/tools/FakePage'
 import NavigationFrame from './components/navs/NavigationFrame/NavigationFrame'
@@ -27,18 +27,19 @@ function App() {
                     <Route path="/contact" element={<FakePage name="Contact Us" />} />
                     <Route path="/faqs" element={<FakePage name="FAQs" />} />
 
-                    <Route path="/auth" element={<FakePage name="Auth" />}>
+                    <Route path="/auth">
                         <Route index element={<FakePage name="Login" />} />
-                        <Route path="/auth/signup" element={<FakePage name="Sign Up" />} />
-                        <Route path="/auth/reset-password" element={<FakePage name="Reset Password" />} />
+                        <Route path="sign-up" element={<FakePage name="Sign Up" />} />
+                        <Route path="reset-password" element={<FakePage name="Reset Password" />} />
                     </Route>
 
                     <Route path="/app">
                         <Route index element={<FakePage name="Dashboard" />} />
 
-                        <Route path="profile" element={<FakePage name="Profile" />} />
+                        <Route path="profile" element={<Navigate to="preview" />} />
                         <Route path="profile/preview" element={<Preview />} />
                         <Route path="profile/edit" element={<FakePage name="Edit" />} />
+                        <Route path="profile/share" element={<FakePage name="Share" />} />
 
                         <Route path="identity" element={<FakePage name="Identity" />} />
                         <Route path="identity/test" element={<FakePage name="Test" />} />

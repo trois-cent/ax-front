@@ -78,19 +78,26 @@ export const nav: (t: typeof eng) => Array<LinkData> = (t: typeof eng) => [
         label: t.pages.profile,
         link: '/app/profile',
         element: <FakePage name="Profile" />,
-        subLinks: [
+        sublinks: [
             {
                 type: 'sub',
-                ecosystem: ['app'],
+                ecosystems: ['app'],
                 label: t.pages.preview,
                 link: '/app/profile/preview',
                 element: <FakePage name="Preview" />,
             },
             {
                 type: 'sub',
-                ecosystem: ['app'],
+                ecosystems: ['app'],
                 label: t.pages.edit,
                 link: '/app/profile/edit',
+                element: <FakePage name="Edit" />,
+            },
+            {
+                type: 'sub',
+                ecosystems: ['app'],
+                label: t.pages.share,
+                link: '/app/profile/share',
                 element: <FakePage name="Edit" />,
             },
         ],
@@ -101,17 +108,17 @@ export const nav: (t: typeof eng) => Array<LinkData> = (t: typeof eng) => [
         label: t.pages.identity,
         link: '/app/identity',
         element: <FakePage name="Identity" />,
-        subLinks: [
+        sublinks: [
             {
                 type: 'sub',
-                ecosystem: ['app'],
+                ecosystems: ['app'],
                 label: t.pages.results,
                 link: '/app/identity/test-results',
                 element: <FakePage name="Results" />,
             },
             {
                 type: 'sub',
-                ecosystem: ['app'],
+                ecosystems: ['app'],
                 label: t.pages.learn,
                 link: '/app/identity/learn',
                 element: <FakePage name="Learn" />,
@@ -140,3 +147,18 @@ export const nav: (t: typeof eng) => Array<LinkData> = (t: typeof eng) => [
         element: <FakePage name="Sign Up" />,
     },
 ]
+
+export const levelLinks = (links: Array<LinkData>): Array<LinkData> => {
+    const arr: Array<LinkData> = []
+
+    links.forEach(link => {
+        arr.push(link)
+        if (link.sublinks) {
+            link.sublinks.forEach(sublink => {
+                arr.push(sublink)
+            })
+        }
+    })
+
+    return arr
+}
