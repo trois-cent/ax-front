@@ -68,7 +68,7 @@ export const SplitTextInner = forwardRef<HTMLSpanElement, SplitTextProps>(functi
         let line: string = ''
         let charCount = 0
         const words = newText.split(' ')
-        for (const [i, word] of words.entries()) {
+        for (const [_, word] of words.entries()) {
             charCount += word.length + 1
             if (charCount > charPerLine + 1) {
                 lines.push(line)
