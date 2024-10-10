@@ -11,7 +11,7 @@ import TabLine from '@/components/tools/TabLine'
 import useDevice from '@/lib/utils/hooks/UseDevice'
 import useResizeObserver from '@/lib/utils/hooks/UseResizeObserver'
 import SplitText from '@/components/tools/SplitText/SplitText'
-import { splitTextLetters, splitTextLines } from '@/lib/animations/textAnimations'
+import { splitTextLetters } from '@/lib/animations/textAnimations'
 
 const NavigationFrame = () => {
     const { mob, tabDown, dk } = useDevice()

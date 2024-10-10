@@ -1,5 +1,3 @@
-type SplitTeytTarget = 'lines' | 'words' | 'letters'
-
 import gsap from 'gsap'
 
 export const splitTextLines = () =>
