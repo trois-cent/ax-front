@@ -130,18 +130,7 @@ const NavigationFrame = () => {
                                 onMouseEnter={() => setHoveredLink(i)}
                                 onMouseLeave={() => setHoveredLink(activeLinkIndex)}
                             >
-                                <p className="w-full flex lg:justify-center items-center py-4 md:py-6">
-                                    {dk ? (
-                                        <>
-                                            <span className="pr-6">0{i + 1}.</span>
-                                            {link.label}
-                                        </>
-                                    ) : (
-                                        <SplitText animation={isOpen ? splitTextLetters : undefined}>
-                                            {link.label}
-                                        </SplitText>
-                                    )}
-                                </p>
+                                <p className="w-full flex lg:justify-center items-center py-4 md:py-6">{link.label}</p>
                             </Link>
                         ))}
                     </div>
