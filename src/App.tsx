@@ -4,6 +4,7 @@ import WebFont from 'webfontloader'
 import FakePage from './components/tools/FakePage'
 import NavigationFrame from './components/navs/NavigationFrame/NavigationFrame'
 import Preview from './pages/app/profile/Preview'
+import Home from './pages/visitor/Home'
 
 function App() {
     useEffect(() => {
@@ -18,13 +19,13 @@ function App() {
         <>
             <Routes>
                 <Route path="/" element={<NavigationFrame />}>
-                    <Route index element={<FakePage name="Home" />} />
+                    <Route index element={<Home />} />
 
                     <Route path="/profile" element={<FakePage name="V Profile" />} />
                     <Route path="/identity" element={<FakePage name="V Identity" />} />
                     <Route path="/vision" element={<FakePage name="The Vision" />} />
                     <Route path="/pricing" element={<FakePage name="Pricing" />} />
-                    <Route path="/contact" element={<FakePage name="Contact Us" />} />
+                    <Route path="/contact-us" element={<FakePage name="Contact Us" />} />
                     <Route path="/faqs" element={<FakePage name="FAQs" />} />
 
                     <Route path="/auth">

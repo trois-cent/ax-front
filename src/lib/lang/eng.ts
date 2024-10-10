@@ -17,7 +17,7 @@ export default {
         results: 'Results',
         learn: 'Learn',
         test: 'Test',
-        login: 'Login',
+        login: 'Log In',
         signup: 'Sign Up',
         dashboard: 'Dashboard',
         share: 'Share',

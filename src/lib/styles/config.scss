@@ -6,8 +6,10 @@
 
     --black: #171717;
     --white: #f5f5f5;
-    --accent: #ff6340;
+    --accent: #f35c39;
     --accent-dark: #db5434;
+
+    --alternative-accent-if-other-too-dark: #ff6340;
 
     --line: hsl(var(--hsl-white) / 0.15);
 
