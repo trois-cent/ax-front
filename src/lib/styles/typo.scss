@@ -18,6 +18,8 @@
 }
 
 .menu-link {
+    display: block;
+
     font-family: var(--poppins);
     font-size: 20px;
     font-weight: 500;
@@ -27,19 +29,49 @@
     white-space: nowrap;
 
     color: var(--black);
+
+    .arrow {
+        opacity: 0;
+        scale: 0;
+        transform-origin: bottom left;
+        transition: 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+
+    .switch {
+        padding-right: 0.25em;
+        opacity: 0;
+        scale: 0;
+        rotate: -360deg;
+        transition: 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+
+    &:hover {
+        .arrow {
+            opacity: 1;
+            scale: 1;
+        }
+        .switch {
+            opacity: 1;
+            scale: 1;
+            rotate: 0deg;
+        }
+    }
 }
 
 // phone + tablet
 @media screen and (max-width: 1023px) {
-    .impact-text {
-        font-size: 48px;
-    }
-
     .big-p {
-        font-size: 36px;
+        font-size: 32px;
     }
 
     .menu-link {
         font-size: 18px;
+    }
+}
+
+// phone
+@media screen and (max-width: 767px) {
+    .big-p {
+        font-size: 24px;
     }
 }

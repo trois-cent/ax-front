@@ -59,12 +59,10 @@ const TabLine: FC<TabLineProps> = ({ i, cols, color = 'var(--black)', refresh })
     }, [cols, width, refresh])
 
     useEffect(() => {
-        console.log('change applied to bar')
         moveLine()
     }, [index])
 
     useEffect(() => {
-        console.log('change detected')
         if (i !== index) setIndex(i)
     }, [i])
 
