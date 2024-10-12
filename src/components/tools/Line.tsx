@@ -15,26 +15,34 @@ const Line: FC<LineProps> = ({ scrollRoot }) => {
     useGSAP(
         () => {
             if (line.current) {
-                gsap.fromTo(
-                    line.current,
-                    { clipPath: 'inset(0 100% 0 0)' },
-                    {
-                        clipPath: 'inset(0 0% 0 0)',
-                        scrollTrigger: {
-                            scroller: scrollRoot?.current || document.querySelector('main .inner'),
-                            trigger: line.current,
-                            start: 'top 95%',
-                            end: 'top 50%',
-                            scrub: true,
-                        },
-                    }
+                setTimeout(
+                    () =>
+                        gsap.fromTo(
+                            line.current,
+                            { clipPath: 'inset(0 100% 0 0)' },
+                            {
+                                clipPath: 'inset(0 0% 0 0)',
+                                scrollTrigger: {
+                                    scroller: scrollRoot?.current || document.querySelector('main .inner'),
+                                    trigger: line.current,
+                                    start: 'top 95%',
+                                    end: 'top 50%',
+                                    scrub: true,
+                                },
+                            }
+                        ),
+                    300
                 )
             }
+
+            return () => {
+                ScrollTrigger.killAll()
+            }
         },
-        { dependencies: [line.current, scrollRoot] }
+        { dependencies: [line.current, scrollRoot], revertOnUpdate: true }
     )
 
-    return <div className="h-[2px] w-full bg-line" ref={line} />
+    return <div className="line h-[2px] w-full bg-line" ref={line} />
 }
 
 export default Line

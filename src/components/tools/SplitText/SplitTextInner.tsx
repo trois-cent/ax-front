@@ -4,8 +4,9 @@ import { SplitTextProps } from './SplitText'
 
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
-gsap.registerPlugin(useGSAP)
+gsap.registerPlugin(useGSAP, ScrollTrigger)
 
 const DefaultLineWrapper = memo(LineWrapper)
 const DefaultWordWrapper = memo(WordWrapper)

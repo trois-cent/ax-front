@@ -1,7 +1,6 @@
 import './styles.scss'
 import { useEffect, useRef, useState } from 'react'
 import { Link, Outlet, useLocation } from 'react-router-dom'
-import { motion } from 'framer-motion'
 
 import { Ecosystem, levelLinks, LinkData, nav } from './Structure'
 
@@ -10,8 +9,6 @@ import Logo from '@/components/tools/Logo'
 import TabLine from '@/components/tools/TabLine'
 import useDevice from '@/lib/utils/hooks/UseDevice'
 import useResizeObserver from '@/lib/utils/hooks/UseResizeObserver'
-import SplitText from '@/components/tools/SplitText/SplitText'
-import { splitTextLetters } from '@/lib/animations/textAnimations'
 
 const NavigationFrame = () => {
     const { mob, tabDown, dk } = useDevice()
@@ -40,6 +37,7 @@ const NavigationFrame = () => {
 
     useEffect(() => {
         if (isOpen) setIsOpen(false)
+        document.querySelector('main .inner')?.scroll({ top: 0, behavior: 'instant' })
         const eco = url.includes('/auth') ? 'auth' : url.includes('/app') ? 'app' : 'visitor'
         if (eco !== ecosystem) setEcosystem(eco)
         setMainLinks(nav(t).filter(l => l.ecosystems.includes(eco) && l.type === 'main'))
@@ -65,9 +63,7 @@ const NavigationFrame = () => {
     }
 
     return (
-        <motion.div
-            layout
-            transition={{ duration: 0.55, ease: 'cubic.inOut' }}
+        <div
             id="navigation-frame"
             className={`${isOpen ? 'open' : ''} ${
                 ecosystem === 'auth' && url.includes('/sign-up') ? 'sign-up' : ecosystem === 'auth' ? 'log-in' : ''
@@ -96,7 +92,7 @@ const NavigationFrame = () => {
                             ))}
                         </ul>
                     )}
-                    <div className={`right flex space-x-2 ${tabDown ? 'impact-text' : ''}`}>
+                    <div className={`right flex space-x-1 ${tabDown ? 'impact-text' : ''}`}>
                         {ecosystem !== 'auth' ? (
                             <button className="small-button" onClick={() => setIsOpen(prev => !prev)}>
                                 {isOpen ? t.kw.close : t.kw.menu}
@@ -206,7 +202,7 @@ const NavigationFrame = () => {
                 </main>
             </div>
             <div className="auth-right"></div>
-        </motion.div>
+        </div>
     )
 }
 

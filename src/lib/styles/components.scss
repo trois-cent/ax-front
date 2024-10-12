@@ -27,15 +27,3 @@
         background-color: var(--black);
     }
 }
-
-// frame for image and media contents
-.media-frame {
-    border: 2px solid var(--line);
-    border-radius: var(--radius-md);
-    padding: 8px;
-
-    & > * {
-        border-radius: var(--radius-sm);
-        overflow: hidden;
-    }
-}

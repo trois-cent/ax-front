@@ -34,5 +34,5 @@ export interface LetterWrapperProp<T = any> {
 }
 
 export const LetterWrapper: React.FC<LetterWrapperProp> = ({ children }) => (
-    <span className="letter-wrap inline-block leading-[1em] align-top overflow-hidden">{children}</span>
+    <span className="letter-wrap inline-block leading-[1.2em] align-top overflow-hidden">{children}</span>
 )
