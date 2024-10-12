@@ -1,0 +1,46 @@
+.media-frame {
+    border: 2px solid var(--line);
+    border-radius: var(--radius-md);
+    padding: 8px;
+
+    img {
+        border-radius: var(--radius-sm);
+        overflow: hidden;
+    }
+
+    .fallback {
+        min-width: 200px;
+        min-height: 200px;
+
+        width: 100%;
+        border-radius: var(--radius-sm);
+        overflow: hidden;
+
+        animation: pulse 1.5s cubic-bezier(0.645, 0.045, 0.355, 1) infinite;
+    }
+
+    .error-fallback {
+        width: 100%;
+
+        background-color: hsl(var(--hsl-white) / 0.02);
+        border-radius: var(--radius-sm);
+        overflow: hidden;
+
+        padding: 4rem 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        background-color: hsl(var(--hsl-white) / 0);
+    }
+    50% {
+        background-color: hsl(var(--hsl-white) / 0.02);
+    }
+    100% {
+        background-color: hsl(var(--hsl-white) / 0);
+    }
+}

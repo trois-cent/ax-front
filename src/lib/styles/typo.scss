@@ -58,6 +58,19 @@
     }
 }
 
+.section-title {
+    font-family: var(--poppins);
+    font-size: 16px;
+    font-weight: 600;
+
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+
+    color: hsl(var(--hsl-white) / 0.45);
+
+    padding-top: 1rem;
+}
+
 // phone + tablet
 @media screen and (max-width: 1023px) {
     .big-p {
